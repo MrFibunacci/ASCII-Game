@@ -2,19 +2,19 @@
  * An Placeble object wich can be moved around.
  */
 class Pawn extends Actor {
-    moveLeft(){
+    moveLeft() {
         this.position.subX();
     }
 
-    moveRight(){
+    moveRight() {
         this.position.addX();
     }
 
-    moveUp(){
+    moveUp() {
         this.position.subY();
     }
 
-    moveDown(){
+    moveDown() {
         this.position.addY();
     }
 }

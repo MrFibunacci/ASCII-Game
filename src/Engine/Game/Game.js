@@ -1,6 +1,8 @@
 class Game {
     constructor() {
+        // init some general stuff, like player, world, etc.
         this.World = new World();
+        this.Player = new Player();
 
         // setup generel canvas stuff
         this.canvasMap    = document.getElementById("map");
@@ -10,7 +12,7 @@ class Game {
         this.canvasLegend = document.getElementById("controls");
         this.ctxLegend    = this.canvasLegend.getContext("2d");
         this.canvasInfo   = document.getElementById("infoBox");
-        this.ctxInfo      = this.canvasInfo.getContext("2d");
+        this.ctxInfo      = this.canvasInfo.getContext("2d");        
     }
 
     draw() {

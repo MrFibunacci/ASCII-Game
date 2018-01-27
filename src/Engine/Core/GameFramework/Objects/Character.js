@@ -18,4 +18,10 @@ class Character extends Pawn {
         this.activeWeapon  = activeWeapon;
         this.activeGear    = activeGear;
     }
+
+    // --- Inventory actions: ---
+    pickUpItem() {}
+    dropItem() {}
+    useItem() {}
+    selectItem() {}
 }

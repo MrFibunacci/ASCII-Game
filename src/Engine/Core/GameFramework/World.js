@@ -1,9 +1,7 @@
 class World {
-    constructor(Room){
+    constructor(Room) {
         this.Rooms = Room
     }
 
-    renderWorld(){
-
-    }
+    renderWorld() {}
 }
