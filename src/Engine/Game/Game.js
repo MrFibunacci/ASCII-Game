@@ -1,7 +1,7 @@
 class Game {
     constructor() {
-        // init some general stuff, like player, world, etc.
-        this.World = new World();
+        // setup some general stuff, like player, world, etc.
+        this.World = new World(new Room());
         this.Player = new Player();
 
         // setup generel canvas stuff
@@ -12,15 +12,44 @@ class Game {
         this.canvasLegend = document.getElementById("controls");
         this.ctxLegend    = this.canvasLegend.getContext("2d");
         this.canvasInfo   = document.getElementById("infoBox");
-        this.ctxInfo      = this.canvasInfo.getContext("2d");        
+        this.ctxInfo      = this.canvasInfo.getContext("2d");
+
+        this.ctx.font = "20px monospace";
     }
 
     draw() {
         this.clearCanvases();
+        this.World.renderWorld(this.ctx, new Array(this.Player, new Actor("+", "#333333", 3, 3), new Actor("<", "#00FF00", 5, 3)));
     }
 
     update() {
+        //controls and collision
+        document.addEventListener("keydown", this.Player.playerMovement, false);
+        document.addEventListener("keyup", keyUpHandler, false);
 
+        /*function keyDownHandler(e){
+            //console.log(e);
+            switch(e.key) {
+                case "ArrowRight":
+                    this.Player.moveRight();
+                    break;
+                case "ArrowLeft":
+                    this.Player.moveLeft();
+                    break;
+                case "ArrowUp":
+                    this.Player.moveUp();
+                    break;
+                case "ArrowDown":
+                    this.Player.moveDown();
+                    break;
+            }
+        }*/
+
+        function keyUpHandler(e){
+            if(e.keyCode == 49){
+                keyOnePressed = false;
+            }
+        }
     }
 
     clearCanvases() {

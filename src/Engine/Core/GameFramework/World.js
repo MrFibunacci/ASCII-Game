@@ -1,7 +1,12 @@
 class World {
     constructor(Room) {
-        this.Rooms = Room
+        this.Rooms = [];
+        this.Rooms[this.Rooms.length] = Room
     }
 
-    renderWorld() {}
+    renderWorld(ctx, ObjectsInWorld = []) {
+        this.Rooms.forEach(element => {
+            element.drawRoomAtPosition(ctx, ObjectsInWorld);
+        });
+    }
 }
