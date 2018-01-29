@@ -3,19 +3,24 @@ class Player extends Character {
         super("@", "#60BCEB", 100);
     }
 
+    /**
+     * Player movement handler. I'd really like to call methods like this: "this.moveDirection();"
+     * But JS is a cunt
+     * @param {*} keyDownHandler 
+     */
     playerMovement(keyDownHandler) {
         switch(keyDownHandler.key) {
             case "ArrowRight":
-                this.moveRight();
+                GameInstance.Player.moveRight();
                 break;
             case "ArrowLeft":
-                this.moveLeft();
+                GameInstance.Player.moveLeft();
                 break;
             case "ArrowUp":
-                this.moveUp();
+                GameInstance.Player.moveUp();
                 break;
             case "ArrowDown":
-                this.moveDown();
+                GameInstance.Player.moveDown();
                 break;
         }
     }

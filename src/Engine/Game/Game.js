@@ -25,7 +25,7 @@ class Game {
     update() {
         //controls and collision
         document.addEventListener("keydown", this.Player.playerMovement, false);
-        document.addEventListener("keyup", keyUpHandler, false);
+        //document.addEventListener("keyup", keyUpHandler, false);
 
         /*function keyDownHandler(e){
             //console.log(e);
