@@ -23,33 +23,8 @@ class Game {
     }
 
     update() {
-        //controls and collision
+        //Movement
         document.addEventListener("keydown", this.Player.playerMovement, false);
-        //document.addEventListener("keyup", keyUpHandler, false);
-
-        /*function keyDownHandler(e){
-            //console.log(e);
-            switch(e.key) {
-                case "ArrowRight":
-                    this.Player.moveRight();
-                    break;
-                case "ArrowLeft":
-                    this.Player.moveLeft();
-                    break;
-                case "ArrowUp":
-                    this.Player.moveUp();
-                    break;
-                case "ArrowDown":
-                    this.Player.moveDown();
-                    break;
-            }
-        }*/
-
-        function keyUpHandler(e){
-            if(e.keyCode == 49){
-                keyOnePressed = false;
-            }
-        }
     }
 
     clearCanvases() {

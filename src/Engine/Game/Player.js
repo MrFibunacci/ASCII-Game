@@ -4,23 +4,39 @@ class Player extends Character {
     }
 
     /**
-     * Player movement handler. I'd really like to call methods like this: "this.moveDirection();"
+     * Player movement handler. And Collison handling
+     * I'd really like to call methods like this: "this.moveDirection();"
      * But JS is a cunt
      * @param {*} keyDownHandler 
      */
     playerMovement(keyDownHandler) {
+        // some refrences for better readability
+        let CurrentRoomReference   = GameInstance.World.Rooms[0];
+        let PlayerReference        = GameInstance.Player;
+        let playerPostionX         = PlayerReference.position.x;
+        let playerPostionY         = PlayerReference.position.y;
+        let cellWallAppearance     = CurrentRoomReference.CellsAppearance['wall'];
+
         switch(keyDownHandler.key) {
             case "ArrowRight":
-                GameInstance.Player.moveRight();
+                if(CurrentRoomReference.room[playerPostionY][playerPostionX+1] != cellWallAppearance) {
+                    PlayerReference.moveRight();
+                }
                 break;
             case "ArrowLeft":
-                GameInstance.Player.moveLeft();
+                if(CurrentRoomReference.room[playerPostionY][playerPostionX-1] != cellWallAppearance) {
+                    PlayerReference.moveLeft();
+                }
                 break;
             case "ArrowUp":
-                GameInstance.Player.moveUp();
+                if(CurrentRoomReference.room[playerPostionY-1][playerPostionX] != cellWallAppearance) {
+                    PlayerReference.moveUp();
+                }
                 break;
             case "ArrowDown":
-                GameInstance.Player.moveDown();
+                if(CurrentRoomReference.room[playerPostionY+1][playerPostionX] != cellWallAppearance) {
+                    PlayerReference.moveDown();
+                }
                 break;
         }
     }
