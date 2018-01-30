@@ -14,13 +14,16 @@ class Character extends Pawn {
         this.maxHealth     = health;
         this.damage        = 1;
         this.gear          = 0;
-        this.inventory     = inventory;
+        this.inventory     = new Inventory(inventory);
         this.activeWeapon  = activeWeapon;
         this.activeGear    = activeGear;
     }
 
     // --- Inventory actions: ---
-    pickUpItem() {}
+    pickUpItem(Item) {
+        this.inventory.addToInventory(Item);
+    }
+
     dropItem() {}
     useItem() {}
     selectItem() {}
