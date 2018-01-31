@@ -25,7 +25,7 @@ class Room {
                 let flag = false;
                 ObjectsInWorld.forEach(ObjectInWorld => {
                     if(flag == false) {
-                        if(ObjectInWorld.position.x == x && ObjectInWorld.position.y == y) {
+                        if(ObjectInWorld.position.getX() == x && ObjectInWorld.position.getY() == y) {
                             ctx.fillStyle = ObjectInWorld.color;
                             ctx.fillText(ObjectInWorld.appearance, (x*12+2), (y*17+17));
                             flag = true;

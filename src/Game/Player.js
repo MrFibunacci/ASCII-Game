@@ -11,7 +11,7 @@ class Player extends Character {
      */
     playerMovement(keyDownHandler) {
         // some refrences for better readability
-        let CurrentRoomReference   = GameInstance.World.Rooms[0];
+        let CurrentRoomReference   = GameInstance.World.currentRoom;
         let PlayerReference        = GameInstance.Player;
         let playerPostionX         = PlayerReference.position.x;
         let playerPostionY         = PlayerReference.position.y;
@@ -46,14 +46,12 @@ class Player extends Character {
         let playerPostion   = PlayerReference.position;
 
         // if player is next to or on an item pick it up if Interact is pressed and remove actor from map
-        if(keyDownHandler.code == "ControlRight") {
+        if(keyDownHandler.code == "ControlRight") {            
             GameInstance.World.ObjectsInWorld.forEach(function(element, index) {
                 if(playerPostion.isOnActor(element) && element instanceof Item) {
                     // pick Item  up
                     PlayerReference.pickUpItem(element);
-                    GameInstance.World.ObjectsInWorld[index] = null;
-
-                    console.log(PlayerReference.inventory);
+                    GameInstance.World.ObjectsInWorld.splice(index, 1);
                 }
             });
         }

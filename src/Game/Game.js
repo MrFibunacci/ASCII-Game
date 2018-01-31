@@ -2,7 +2,7 @@ class Game {
     constructor() {
         // setup some general stuff, like player, world, etc.
         this.Player = new Player();
-        this.World  = new World(new Room(), new Array(this.Player, new Actor("+", "#333333", 3, 3), new Actor("<", "#00FF00", 5, 3)));
+        this.World  = new World(new Room(), new Array(this.Player, new Item("+", "#333333", "", "", 1, 3, 3)));
 
         // setup generel canvas stuff
         this.canvasMap    = document.getElementById("map");
@@ -26,6 +26,7 @@ class Game {
     update() {
         //Movement
         document.addEventListener("keydown", this.Player.playerMovement, false);
+        document.addEventListener("keydown", this.Player.interaction, false);
     }
 
     clearCanvases() {

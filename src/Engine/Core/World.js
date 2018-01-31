@@ -3,6 +3,8 @@ class World {
         this.Rooms = [];
         this.Rooms.push(Room);
 
+        this.currentRoom = Room;
+
         this.ObjectsInWorld = ObjectsInWorld;
     }
 
