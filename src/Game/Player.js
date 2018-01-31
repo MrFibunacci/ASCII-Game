@@ -40,4 +40,22 @@ class Player extends Character {
                 break;
         }
     }
+
+    interaction(keyDownHandler) {
+        let PlayerReference = GameInstance.Player;
+        let playerPostion   = PlayerReference.position;
+
+        // if player is next to or on an item pick it up if Interact is pressed and remove actor from map
+        if(keyDownHandler.code == "ControlRight") {
+            GameInstance.World.ObjectsInWorld.forEach(function(element, index) {
+                if(playerPostion.isOnActor(element) && element instanceof Item) {
+                    // pick Item  up
+                    PlayerReference.pickUpItem(element);
+                    GameInstance.World.ObjectsInWorld[index] = null;
+
+                    console.log(PlayerReference.inventory);
+                }
+            });
+        }
+    }
 }
