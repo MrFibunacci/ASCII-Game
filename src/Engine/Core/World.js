@@ -1,12 +1,14 @@
 class World {
-    constructor(Room) {
+    constructor(Room, ObjectsInWorld = []) {
         this.Rooms = [];
-        this.Rooms[this.Rooms.length] = Room
+        this.Rooms.push(Room);
+
+        this.ObjectsInWorld = ObjectsInWorld;
     }
 
-    renderWorld(ctx, ObjectsInWorld = []) {
+    renderWorld(ctx) {
         this.Rooms.forEach(element => {
-            element.drawRoomAtPosition(ctx, ObjectsInWorld);
+            element.drawRoomAtPosition(ctx, GameInstance.World.ObjectsInWorld);
         });
     }
 }
