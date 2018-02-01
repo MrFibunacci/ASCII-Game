@@ -1,4 +1,5 @@
 class Room {
+    // Max room param w54 h22
     constructor(width = 10, height = 10) {
         this.width = width;
         this.height = height;
