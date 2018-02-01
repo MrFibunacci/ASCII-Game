@@ -29,6 +29,32 @@ class UI {
         });
     }
 
+    drawStats(Player) {
+        this.ctxIS.font = this.fontsize +"px Arial";
+        this.ctxIS.fillStyle = "#000000";
+        this.ctxIS.fillText("Stats:", 2, this.fontsize);
+
+        //Health
+        this.ctxIS.fillText("Health: ", 4, this.fontsize*2);
+        this.ctxIS.fillText(Math.round(Player.currentHealth) + "/" + Player.maxHealth, 90, this.fontsize*2);
+
+        //damage
+        this.ctxIS.fillText("Damage: ", 4, this.fontsize*3);
+        this.ctxIS.fillText(Math.round(Player.damage), 90, this.fontsize*3);
+
+        //gear
+        this.ctxIS.fillText("Gear: " , 4, this.fontsize*4);
+        this.ctxIS.fillText(Math.round(Player.gear), 90, this.fontsize*4);
+
+        //active weapon
+        this.ctxIS.fillText("Weapon: ", 4, this.fontsize*5);
+        this.ctxIS.fillText(Player.activeWeapon, 90, this.fontsize*5);
+
+        //active armor
+        this.ctxIS.fillText("Armor: ", 4, this.fontsize*6);
+        this.ctxIS.fillText(Player.activeGear, 90, this.fontsize*5);
+    }
+
     drawLegend() {
         this.ctxLegend.font = "20px Arial";
         this.ctxLegend.fillStyle = "#000";

@@ -11,6 +11,7 @@ class Game {
         this.UI.clearCanvases();
         this.UI.drawLegend();
         this.UI.drawInventory(this.Player.inventory);
+        this.UI.drawStats(this.Player);
         this.World.renderWorld(this.UI.ctx);
     }
 
