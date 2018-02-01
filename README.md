@@ -1,2 +1,2 @@
 # ASCII-Game
-An rough like ACII-Game in JavaScript
+An Rogue like ACII-Game in JavaScript
