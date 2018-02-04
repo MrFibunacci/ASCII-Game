@@ -4,7 +4,7 @@ class Game {
         this.Player = new Player();
         this.World  = new World(new Room(), new Array(this.Player, new Item("+", "#333333", "some cross", "", 1, 3, 3)));
 
-        this.UI = new UI(this.ctxLegend);
+        this.UI = new UI();
     }
 
     draw() {
