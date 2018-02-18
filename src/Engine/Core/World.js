@@ -17,19 +17,37 @@ class World {
     }
 
     initilaizeLevel() {
+        this.generateLevel();
+    }
+
+    /**
+     * Generate level with everything needed
+     */
+    generateLevel() {
         // generate rooms next to each other with dors to other rooms wich completley make up the canvas
-        let tempGeneratedLevelData = new Array(new Array());
-        for(let x = 0; x < 1; x++) {
-            let roomHeight = this.randomInt(5, this.worldMaxHeight-7);
-            for(let y = 0; y < 2; y++) {
-                tempGeneratedLevelData[x][y] = new Room(10, this.randomInt(5, this.worldMaxHeight-roomHeight));
+        // TODO: Remove double walled level generation
+        let TempRooms = new Array();
+        for(let x = 0, randXval = this.randomInt(2, 5); x <= randXval; x++) {
+            let tempCollum = new Array();
+            for(let y = 0, randYval = this.randomInt(1, 4); y <= randYval; y++) {
+                tempCollum.push(new Room(Math.round(this.worldMaxWidth/randXval), Math.round(this.worldMaxHeight/randYval)));
             }
+            TempRooms.push(tempCollum);
         }
 
-        console.log(tempGeneratedLevelData);
-        //this.Rooms.push(new Room(10, roomHeight));
-        //this.Rooms.push(new Room(10, this.worldMaxHeight-roomHeight));
-        //console.log(this.currentLevel);
+        console.log(TempRooms);
+
+        let tempLevel = new Room(0,0);
+        TempRooms.forEach(function(RoomsColls, roomX) {
+            let roomColls = new Array()
+            RoomsColls.forEach(function(Room, roomY) {
+                
+                Room.room.forEach(function(coll) {
+                    roomColls.push(coll);
+                });
+            });
+            console.log(roomColls);
+        });
 
         // make an "Stairway" to next Level
         // put items and enemies in it
